@@ -17,9 +17,12 @@ function getDifficultyColor(difficulty) {
 
 const container = document.getElementById("demon-list");
 
-fetch("get_demons.php")
+fetch("/demons")
   .then(res => res.json())
   .then(demons => {
+    const container = document.getElementById("demon-list");
+    container.innerHTML = "";
+
     demons.forEach(demon => {
       const card = document.createElement("div");
       card.classList.add("demon-card");
